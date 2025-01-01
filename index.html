@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Vanguard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Swim Lanes with Creeper Plants</title>
+  <style>
+    /* General page styling */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: skyblue; /* Sky blue background */
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr; /* Three swim lanes */
+      height: 100vh; /* Full screen height */
+    }
+
+    /* Swim lanes */
+    .left-lane, .right-lane {
+      background: url('https://via.placeholder.com/150/228B22/FFFFFF?text=Creeper') center center no-repeat;
+      background-size: cover; /* Cover the lane fully with the image */
+    }
+
+    .middle-lane {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white; /* Optional: white background for content area */
+    }
+
+    /* Centered content in the middle lane */
+    .content {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      color: black;
+      text-align: center;
+      padding: 20px;
+      border: 2px solid black;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to Virtual Vanguard</h1>
+  <!-- Left Lane -->
+  <div class="left-lane"></div>
+
+  <!-- Middle Lane -->
+  <div class="middle-lane">
+    <div class="content">
+            <h1>Welcome to Virtual Vanguard</h1>
     <p>
         We are high school students trying to help middle school and high school students.
         We'll try our best to help you within a day or two, but please note that this is best-efforts only, since we are busy with our own work also.
@@ -26,5 +67,10 @@
         marginwidth="0">
         Loading…
     </iframe>
+    </div>
+  </div>
+
+  <!-- Right Lane -->
+  <div class="right-lane"></div>
 </body>
 </html>
