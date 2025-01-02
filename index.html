@@ -41,6 +41,73 @@
       border: 2px solid black;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
+    /* Basic Reset */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar styling */
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 10px 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+    }
+
+    #navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    #navbar li {
+      margin: 0 15px;
+    }
+
+    #navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+    }
+
+    #navbar a:hover {
+      background-color: #575757;
+    }
+
+    /* Highlight active section link */
+    .active {
+      background-color: #ff6347;
+      color: white;
+    }
+
+    /* Section styling */
+    section {
+      padding: 100px 20px;
+      margin-top: 50px;
+      height: 100vh; /* Make sections full height */
+    }
+
+    /* Section background color for visibility */
+    #section1 {
+      background-color: #f9f9f9;
+    }
+    #section2 {
+      background-color: #f1f1f1;
+    }
+    #section3 {
+      background-color: #e9e9e9;
+    }
+    #section4 {
+      background-color: #d9d9d9;
+    }
   </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +120,18 @@
   <!-- Middle Lane -->
   <div class="middle-lane">
     <div class="content">
+      <!-- Navigation Bar -->
+  <div id="navbar">
+    <ul>
+      <li><a href="#section1">Mission</a></li>
+      <li><a href="#section2">Introduction</a></li>
+      <li><a href="#section3">Logistics</a></li>
+      <li><a href="#section4">Submit Your Query</a></li>
+      <li><a href="#section5">Keep in touch with us</a></li>
+    </ul>
+  </div>
             <h1>Welcome to Virtual Vanguard</h1>
+    <section id="section1">
     <h2><strong>Mission</strong></h2>
       <p>
       At Virtual Vanguard, our mission is to empower students by providing free, 
@@ -63,18 +141,25 @@
       Our goal is to foster a community of motivated learners, encouraging academic growth, 
       building confidence, and ensuring that every student has the tools they need to succeed, regardless of their background or resources.
       </p>
-
-    <h2><strong>Intro and Background Information</strong></h2>
+  </section>
+      
+<section id="section2">
+    <h2><strong>Introduction</strong></h2>
       <p>
         <a href="https://www.youtube.com/watch?v=wrdvj_4oWx8" target="_blank">Please check out this video which gives you some background information</a>
       </p>
+</section>
+
+    <section id="section3">
     <h2><strong>Logistics</strong></h2>
       <p>
       Please note that we are high school students and have our own workload to juggle with.
       After you submit your intake form (below), we will try our best to contact you as soon as our time permits 
       (hopefully, within a day or two). We are so glad that you chose us to help you with your learning!
       </p>
+      </section>
 
+    <section id="section4">
     <h2>Submit Your Query</h2>
     <p>Please fill out the form below to contact us:</p>
     <iframe 
@@ -86,13 +171,44 @@
         marginwidth="0">
         Loading…
     </iframe>
+    </section>
+
+  <section id="section5">      
  <h2><strong>Keep in touch with us</strong></h2>
  <a href="https://www.facebook.com/srinivasan.ramachandran.1/" target="_blank">Facebook</a>
  <a href="https://www.instagram.com/divijaram/" target="_blank">Instagram</a>
     </div>
   </div>
+  </section>
 
   <!-- Right Lane -->
   <div class="right-lane"></div>
+
+   <script>
+    // JavaScript for scrollspy functionality
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('#navbar a');
+      
+      let currentSection = '';
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === currentSection) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+  
 </body>
 </html>
